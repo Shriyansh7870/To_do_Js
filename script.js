@@ -106,6 +106,20 @@ function cardAdd() {
     flexbox.display = "none";
     cardnew1.style.display = "block";
   }
+   tittle.addEventListener("click", () => {
+    flexbox.style.display = "none";
+    center.style.display = "block";
+    center.appendChild(cardnew1);
+    center.style.display = "flex";
+    header.style.display = "block";
+    tittle5.style.display = "none";
+    tittle6[0].style.display = "none";
+    blank[0].innerText = tittle.innerText;
+    blank[0].style.color = "white";
+  });
+  back1[0].addEventListener("click", () => {
+    backbutton();
+  });
 }
 
 function closetask() {

@@ -1,29 +1,26 @@
 body{
     background-color: black;
     overflow-x: hidden;
+    background-image: url(./background.png);
+    background-repeat:repeat;
     
 }
-/* .taskList{
-position: relative;
-   margin-left: 300px; 
-
-}*/
 #tasklist{
    position: relative;
    left: 250px; 
     font-size: 42px;
-    color:white;
+    color:black;
     font-weight: bolder;
 }
 #list{
     font-size: 38px;
     font-weight: 300;
-    color: white;
+    color:black;
 }
 #noitem{
     position: absolute;
     margin-top: 50px;
-    color: white;
+    color: black;
     left: 250px;
     font-size: 35px;
 
@@ -33,10 +30,10 @@ display: flex;
     width: 180px;
     height: 60px;
     font-size: 20px;
-    color: white;
+    color:black;
     border:3px solid white;
     border-radius: 15px;
-    background-color: black;
+    background-color: pink;
     font-weight: bolder;
    margin-left:70vw;
    margin-top: -3vw;
@@ -45,6 +42,7 @@ display: flex;
    align-items: center;
 
 }
+
 #plus{
    position:relative;
    width:30px;
@@ -69,6 +67,7 @@ display: flex;
     width:260px;
     left:40vw;
     top:180px;
+    z-index: 1;
     padding: 15px;
     background-color: aqua;
     border-radius: 15px;
@@ -101,22 +100,19 @@ display: flex;
     border-radius: 5px;
  }
  #box{
-   margin-top: 20px;
+   margin-top: 80px;
      display: flex;
-     /* height: 100%;
-     width:100%; */
      flex-wrap: wrap;
-     gap:40px;
+     gap:90px;
      justify-content: space-between;
-    /* background-color: white; */
+ 
  }
  .conatiner_child{
-   position: relative;
-     height: 280px;
-     width:270px;
-    border:4px solid blue;
+   min-height: 320px;
+     width:300px;
     border-radius: 10px;
-    background-color: pink;
+    /* background-color: rgb(235, 109, 230); */
+    background-image:url(./card4.png);
  }
  .hide{
     display: none;
@@ -137,7 +133,6 @@ display: flex;
    width:50px;
    left:55%;
    color: rgb(202, 9, 9);
-
  }
  /*------------------------secondpopup-----------------*/
 
@@ -147,7 +142,7 @@ display: flex;
    height:140px;
    width:260px;
    left:40vw;
-   top:180px;
+   top:140px;
    padding: 15px;
    background-color: rgb(13, 163, 68);
    border-radius: 15px;
@@ -170,7 +165,6 @@ display: flex;
    width: 80px;
     margin: 8px;
     border-radius: 5px;
-    background-image: url("./close1437.png");
     
 }
 .close2{
@@ -179,7 +173,232 @@ display: flex;
    border-radius: 5px;
 }
 .inline{
+   
+   display: flex;
+   font-size: 20px;
+   gap:10px;
+   justify-content: center;
+   align-items: baseline;
+}
+.mark{
+   height: 20px;
+   
+}
+.space{
+   line-height:2px;
+}
+#center{
+   margin:auto;
+   width: 350px;
+   display: none;
+   margin-top: 5vw;
+   justify-content: center;
+}
+.backbutton{
+   margin-top: 75px;
+   color:black;
+   font-size: 3.5vw;
+}
+header{
+   display: flex;
+   height: 60px;
+   display: none;
+  justify-content: space-evenly;
+  gap:50px;
+  
+}
+.blank{
+   position: absolute;
+   top:8vh;
+   left:40vw;
+   text-align: center;
+   font-size: 4.8vw;
+   color:black;
+
+}
+.button4{
+   width: 18vw;
+   height: 6vh;
+   color: black;
+   position: absolute;
+   top:8vh;
+   right:3vw;
+   border:3px solid rgb(229, 215, 215);
+   border-radius: 15px;
+   background-color: black;
+   font-weight: bolder;
+   float:right;
+  
+}
+.delete{
+   background-image: url(./delete.png);
+   background-size: cover;
+   width:30px;
+   height:30px;
+   border:none;
+   outline: none;
+   border-radius: 50%;
+   position: relative;
+   margin-left: 30px;
+   margin-top: 5vw;
+}
+.add1{
+   background-image: url(./Add.png);
+   background-size: cover;
+   width:30px;
+   height:30px;
+   border:none;
+   outline: none;
+   border-radius: 50%;
+}
+
+/*----------------------Media_Query----------------*/
+@media screen and (min-width: 280px) and (max-width:600px){
+   body{
+      overflow-x: hidden;
+      overflow-y: scroll;
+   }
+   #tasklist{
+      position: relative;
+      left: 50px; 
+       font-size: 32px;
+   }
+   #list{
+      font-size: 30px;
+  }
+  #noitem{
+   position: absolute;
+   margin-top: 50px;
+   left: 50px;
+   font-size: 30px;
+   margin-top: 80px;
+
+}
+.button1{
+   margin-top: 20px;
+   margin-left:10vw;
+}
+.dropdown{
+  
+   position: relative;
+   height:160px;
+   width:280px;
+   left:10vw;
+   top:120px;
+}
+.conatiner_child{
+   width: 250px;
+  margin-left: 20px;
+}
+.dropdown2{
+  
+   position: absolute;
+   height:140px;
+   width:200px;
+   left:10vw;
+   top:340px;
+
+ }
+ .backbutton{
+   margin-top: 75px;
+   color:black;
+   font-size: 8.5vw;
+}
+.blank{
+   position: absolute;
+   top:20vw;
+   left:30vw;
+   color: black;
+   text-align: center;
+   font-size: 7.8vw;
+
+}
+.buttonfor{
+   margin-left: 240px;
+   margin-top: -50px;
+   width: 100px;
+   height: 50px;
+}
+#center{
+   margin-top: 120px;
+}
+}
+@media screen and (min-width: 620px) and (max-width:900px)
+{
+   body{
+      overflow-x: hidden;
+      overflow-y: scroll;
+   }
+   #tasklist{
+      position: relative;
+      left: 50px; 
+       font-size: 32px;
+   }
+   #list{
+      font-size: 30px;
+  }
+  #noitem{
+   position: absolute;
+   margin-top: 50px;
+   left: 50px;
+   font-size: 30px;
+   margin-top: 80px;
+
+}
+.button1{
+   margin-top: 20px;
+   margin-left:10vw;
+}
+.dropdown{
+  
+   position: relative;
+   height:160px;
+   width:280px;
+   left:10vw;
+   top:120px;
+}
+#box{
+   margin-top: 80px;
+     display: flex;
+     flex-wrap: wrap;
+     gap:40px;
+     justify-content: space-evenly;
  
-   background-color:white;
-   display: inline-block;
+ }
+.conatiner_child{
+  margin-left: 20px;
+  width: 270px;
+}
+.dropdown2{
+  
+   position: absolute;
+   height:140px;
+   width:200px;
+   left:10vw;
+   top:340px;
+
+ }
+ .backbutton{
+   margin-top: 75px;
+   color:black;
+   font-size: 8.5vw;
+}
+.blank{
+   position: absolute;
+   top:10vw;
+   left:42vw;
+   color: black;
+   text-align: center;
+   font-size: 7.8vw;
+
+}
+.buttonfor{
+   margin-left: 600px;
+   margin-top: -50px;
+   width: 100px;
+   height: 50px;
+}
+#center{
+   margin-top: 120px;
+}
 }

@@ -1,26 +1,27 @@
-let dropdown = document.getElementById("dropup");
-let first = document.getElementById("first1");
-let noitem = document.getElementById("noitem");
-let pop2 = document.getElementById("dropup2");
-let count = 0;
-let start = 0;
-function show() {
-  count++;
-  first.setAttribute("class", "first");
-  let dropdown = document.getElementById("dropup");
+ let dropdown = document.getElementById("dropup");
   dropdown.setAttribute("class", " drop dropdown");
   dropdown.classList.remove("hide");
+  flexbox.classList.add("first");
+
   if (count >= 1) {
-    noitem.remove();
+    noitem.style.display = "none";
   }
 }
+const newadd = document.getElementById("Add");
 
-const flexbox = document.getElementById("box");
 const newcard = document.getElementById("cardnew");
 const newcard2 = document.getElementById("cardnew2");
 
+const back1 = document.getElementsByClassName("backbutton");
+
+const tittle5 = document.getElementById("tasklist");
+const tittle6 = document.getElementsByClassName("button1");
+const blank = document.getElementsByClassName("blank");
+const button4 = document.getElementsByClassName("button4");
+
 function cardAdd() {
-  // start++;
+  count++;
+  flexbox.classList.remove("first");
   var cardnew1 = document.createElement("div");
   var tittle = document.createElement("h2");
   tittle.style.marginLeft = "40%";
@@ -44,23 +45,22 @@ function cardAdd() {
 
   cardnew1.classList.add("conatiner_child");
   tittle.innerText = newcard.value;
-  deletebutton.innerText = "delete";
-  addnewbtn.innerText = "Add";
+  deletebutton.classList.add("delete");
+  addnewbtn.classList.add("add1");
 
   dropdown.classList.add("hide");
   first.classList.remove("first");
 
   addnewbtn.addEventListener("click", () => {
-    // pop2.style.display = "block";
     cardnew1.style.height = "auto";
-    //pass the div itemlist_start to add function
     createItempopup(itemlist_start);
   });
   deletebutton.addEventListener("click", () => {
     cardnew1.remove();
   });
+
   function createItempopup(itemlist_start) {
-    var tittle2 = document.createElement("h3"); // inner text in card which is click
+    var tittle2 = document.createElement("h3");
     itemlist_start.appendChild(tittle2);
     let body = document.querySelector("body");
     let dropdown2 = document.createElement("div");
@@ -68,7 +68,7 @@ function cardAdd() {
     dropdown2.style.display = "block";
     let tittle3 = document.createElement("h2");
 
-    tittle3.innerText = "Add the  List"; // card name second
+    tittle3.innerText = "Add the  List";
     let input3 = document.createElement("input");
     input3.setAttribute("id", "cardnew2");
     tittle2.innerText = input3.value;
@@ -87,26 +87,38 @@ function cardAdd() {
     dropdown2.appendChild(close2);
 
     Add2.addEventListener("click", () => {
-      tittle2.innerText = input3.value; //  item store in conatiner from input of popup box
+      const p = document.createElement("p");
+      p.classList.add("inline");
+      tittle2.innerText = input3.value;
       dropdown2.style.display = "none";
       var markdone = document.createElement("button");
-      itemlist_start.append(markdone);
-      markdone.innerText = "X";
-      markdone.style.marginLeft = "10px";
-      markdone.classList.add("inline");
+      itemlist_start.appendChild(p);
+      itemlist_start.classList.add("space");
+      markdone.innerText = "Done";
+      p.appendChild(tittle2);
+      p.appendChild(markdone);
+      markdone.classList.add("mark");
+      flexbox.classList.remove("first");
+      markdone.addEventListener("click", () => {
+        Done();
+      });
+      function Done() {
+        tittle2.style.textDecoration = "line-through";
+        tittle2.style.color = "red";
+        tittle2.style.fontWeight = "bolder";
+        markdone.remove();
+      }
     });
     close2.addEventListener("click", () => {
       dropdown2.remove();
+      console.log(flexbox.childNodes);
+      // if (flexbox.innerText === " ") {
+      //   noitem.style.display = "block";
+      //   console.log("kuch v");
+      // }
     });
   }
   tittle.addEventListener("click", () => {
-    AddnewPage(cardnew1);
-  });
-  function AddnewPage(cardnew1) {
-    flexbox.display = "none";
-    cardnew1.style.display = "block";
-  }
-   tittle.addEventListener("click", () => {
     flexbox.style.display = "none";
     center.style.display = "block";
     center.appendChild(cardnew1);
@@ -115,11 +127,23 @@ function cardAdd() {
     tittle5.style.display = "none";
     tittle6[0].style.display = "none";
     blank[0].innerText = tittle.innerText;
-    blank[0].style.color = "white";
+    blank[0].style.color = "black";
   });
   back1[0].addEventListener("click", () => {
     backbutton();
   });
+  function backbutton() {
+    console.log("Hii");
+    center.style.display = "none";
+    center.innerText = " ";
+    flexbox.appendChild(cardnew1);
+    flexbox.style.display = "flex";
+    flexbox.style.flexDirection = "row";
+    flexbox.style.justifyContent = "space-between";
+    header.style.display = "none";
+    tittle5.style.display = "block";
+    tittle6[0].style.display = "block";
+  }
 }
 
 function closetask() {

@@ -1,4 +1,17 @@
- let dropdown = document.getElementById("dropup");
+let dropdown = document.getElementById("dropup");
+let first = document.getElementById("first1");
+let noitem = document.getElementById("noitem");
+let pop2 = document.getElementById("dropup2");
+const flexbox = document.getElementById("box");
+const center = document.getElementById("center");
+const header = document.querySelector("header");
+const header2 = document.getElementsByClassName("taskList");
+let count = 0;
+let start = 0;
+function show() {
+  count++;
+  first.setAttribute("class", "first");
+  let dropdown = document.getElementById("dropup");
   dropdown.setAttribute("class", " drop dropdown");
   dropdown.classList.remove("hide");
   flexbox.classList.add("first");
@@ -150,3 +163,4 @@ function closetask() {
   dropdown.setAttribute("class", "dropdown drop hide");
   first.classList.remove("first");
 }
+
